@@ -34,7 +34,7 @@ class HomeScreenController extends AbstractController
     }
 
     /**
-     * @Route("/recipe/all", name="get_all_recipe")
+     * @Route("/recipe/all", name="get_all_recipe", methods={"GET"})
      */
 
     public function getAllRecipe() {
