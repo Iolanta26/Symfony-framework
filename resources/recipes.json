@@ -1,21 +1,21 @@
 {
   "recipes": [
     {
-      "title": "waffle",
+      "name": "waffle",
       "ingredients": "eggs, flour, water, sugar",
-      "difficulty": "moderate",
+      "instructions" : "bla bla bla",
       "id": 1
     },
     {
-      "title": "omelette",
+      "name": "omelette",
       "ingredients": "eggs",
-      "difficulty": "easy",
+      "instructions" : "bla bla bla",
       "id": 2
     },
     {
-      "title": "instant noodle",
+      "name": "instant noodle",
       "ingredients": "bag of noodle, water",
-      "difficulty": "easy",
+      "instructions" : "bla bla bla",
       "id": 3
     }
   ]

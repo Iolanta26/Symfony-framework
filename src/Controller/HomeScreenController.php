@@ -12,24 +12,19 @@ class HomeScreenController extends AbstractController
 {
 
     /**
-     * @Route("/recipe/add", name="add_new_recipe")
+     * @Route("/recipe/add", name="add_new_recipe", methods={"POST"})
      */
 
-    public function addRecipe() {
+    public function addRecipe(Request $request) {
         $entityManager = $this->getDoctrine()->getManager();
 
         $newRecipe = new Recipe();
-        $newRecipe->setName('Omelette');
-        $newRecipe->setIngredients('eggs, oil');
-        $newRecipe->setDifficulty('easy');
+        $newRecipe->setName($data["name"]);
+        $newRecipe->setIngredients($data["ingredients"]);
+        $newRecipe->setInstructions($data["instructions"]);
 
-        $newRecipe1 = new Recipe();
-        $newRecipe1->setName('waffle');
-        $newRecipe1->setIngredients('eggs, oil, flour. butter, sugar');
-        $newRecipe1->setDifficulty('medium');
 
         $entityManager->persist($newRecipe);
-        $entityManager->persist($newRecipe1);
 
         $entityManager->flush();
 
@@ -49,7 +44,7 @@ class HomeScreenController extends AbstractController
             $response[] = array(
                 'name' => $recipe->getName(),
                 'ingredients' => $recipe->getIngredients(),
-                'difficulty' => $recipe->getDifficulty()
+                'instructions' => $recipe->getInstructions()
             );
         }
         return $this->json($response);
@@ -71,7 +66,7 @@ class HomeScreenController extends AbstractController
                 'id' => $recipe->getId(),
                 'name' => $recipe->getName(),
                 'ingredients'=> $recipe->getIngredients(),
-                'difficulty'=>$recipe->getDifficulty()
+                'instructions'=>$recipe->getInstructions()
             ]);
         }
     }
@@ -79,7 +74,7 @@ class HomeScreenController extends AbstractController
     /**
      * @Route("/recipe/edit/{id}/{name}", name="edit_a_recipe")
      */
-    public function editRecipe($id) {
+    public function editRecipe($id, $name) {
         $entityManager = $this->getDoctrine()->getManager();
         $recipe = $this->getDoctrine()->getRepository(Recipe::class)->find($id);
 

@@ -23,14 +23,14 @@ class Recipe
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=450)
      */
     private $ingredients;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=1000)
      */
-    private $difficulty;
+    private $instructions;
 
     public function getId(): ?int
     {
@@ -61,15 +61,14 @@ class Recipe
         return $this;
     }
 
-    public function getDifficulty(): ?string
+    public function getInstructions(): ?string
     {
-        return $this->difficulty;
+        return $this->instructions;
     }
 
-    public function setDifficulty(string $difficulty): self
+    public function setInstructions(string $instructions): self
     {
-        $this->difficulty = $difficulty;
+        $this->instructions = $instructions;
 
         return $this;
-    }
 }
