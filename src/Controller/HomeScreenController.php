@@ -18,6 +18,8 @@ class HomeScreenController extends AbstractController
     public function addRecipe(Request $request) {
         $entityManager = $this->getDoctrine()->getManager();
 
+        $data= json_decode($request->getContent(),true);
+
         $newRecipe = new Recipe();
         $newRecipe->setName($data["name"]);
         $newRecipe->setIngredients($data["ingredients"]);
@@ -28,7 +30,7 @@ class HomeScreenController extends AbstractController
 
         $entityManager->flush();
 
-        return new Response('trying to add new recipe...'. $newRecipe1->getId() . $newRecipe->getId());
+        return new Response('trying to add new recipe...' . $newRecipe->getId());
     }
 
     /**
