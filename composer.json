@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "recipes-project",
+    "description": "",
     "license": "proprietary",
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -33,11 +35,7 @@
             "App\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "App\\Tests\\": "tests/"
-        }
-    },
+
     "replace": {
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",

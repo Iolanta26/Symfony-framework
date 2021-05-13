@@ -71,4 +71,4 @@ class Recipe
         $this->instructions = $instructions;
 
         return $this;
-}
+}}
